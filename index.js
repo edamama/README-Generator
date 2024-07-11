@@ -3,6 +3,7 @@
 const fs = require('fs'); //to write file
 const inquirer = require('inquirer'); //get data
 const colors = require('colors'); //colors === awesome
+const generateMarkdown = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = ["What is the title of this project?" , "Give a short description of the project.", "Create a table of contents, please." ,"Let the user know how to install.", 
@@ -12,7 +13,15 @@ const questions = ["What is the title of this project?" , "Give a short descript
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+
+    fs.writeFile(fileName, generateMarkdown(data), (err) =>
+        err ? console.error(err) : console.log('Success!')
+     );
+
+}
+
+
 
 // TODO: Create a function to initialize app
 function init() {
@@ -105,11 +114,25 @@ function init() {
 
         ])
 
-        //.then((response) =>
-            //console.log(colors.yellow("Yay thank you!")));
+        .then((response) =>
+            
+            writeToFile("samples/README.md", response)
+    
+        );
+
+    }
 
 
-        }
+
+
 
 // Function call to initialize app
 init();
+
+
+
+
+
+
+
+
