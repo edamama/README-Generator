@@ -10,41 +10,63 @@
 // If there is no license, return an empty string
 //function renderLicenseSection(license) {}
 
+
+////////////test
+
+
+
+function getLicenseBadge(licenseName) {
+  // Define a mapping of license names to badge URLs
+  const licenseBadges = {
+      "MIT License": 'https://img.shields.io/badge/license-MIT-blue.svg',
+      'Apache License 2.0': 'https://img.shields.io/badge/license-Apache%202.0-blue.svg',
+      'GPL-3.0': 'https://img.shields.io/badge/license-GPL%203.0-blue.svg',
+      // Add more licenses and their badge URLs as needed
+  };
+
+  // Look up the provided license name in the dictionary
+  const badgeUrl = licenseBadges[licenseName] || '';
+
+  return badgeUrl;
+}
+
+
+
+
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
 
-  # Project Title
-${data.title}
+  
+# ${data.title}
 
 
 # Description
 ${data.description}
 
 # Table of Contents 
-* [Installation](#-Installation)
-* [Usage](#-Usage)
-* [License](#-Installation)
-* [Contributing](#-Contributing)
+* [Installation](#-installDirections)
+* [Usage](#-usageDirections)
+* [License](#-licenses)
+* [Contributors](#-credits)
 * [Tests](#-Tests)
-* [Questions](#-Contact-Information)
+* [Questions](#-questions)
     
-# Installation
+# Installation Directions
 ${data.installDirections}
 
-# Usage
+# Usage Details
 ${data.usageDirections}
 
-# License 
-${data.license}
-* As this license list was not comprehensive, if you need another license, use the contact information below to ask for license to be added. 
+# License(s) 
+${getLicenseBadge(data.licenses)} 
 
-# Contributing 
+# Contributors to the project: 
 ${data.credits}
 
 
-
-# Contact Information 
+# You can find more of me here: 
 * GitHub Username: ${data.githubUsername}
 * Contact Email: ${data.email}
 
