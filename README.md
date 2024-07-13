@@ -3,14 +3,6 @@
 # Description
 This is a command line tool made to make README.md files
 
-# Table of Contents 
-* [Installation](#installDirections)
-* [Usage](#-usageDirections)
-* [License](#-licenses)
-* [Contributors](#-credits)
-* [Tests](#-Tests)
-* [Questions](#-questions)
-    
 # Installation Directions
 All you have to do is install the code on your computer and the required packages.
 
